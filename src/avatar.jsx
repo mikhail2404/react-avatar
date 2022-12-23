@@ -213,6 +213,7 @@ class Avatar extends React.Component {
   }
 
   onCloseClick() {
+    console.log('close')
     this.setState({ showLoader: true }, () => this.onCloseCallback())
   }
 
