@@ -21,6 +21,7 @@ class Avatar extends React.Component {
     backgroundColor: 'grey',
     mimeTypes: 'image/jpeg,image/png',
     exportAsSquare: false,
+    showLoader: true,
     exportSize: undefined,
     exportMimeType: 'image/png',
     exportQuality: 1.0,
@@ -65,7 +66,7 @@ class Avatar extends React.Component {
       containerId,
       loaderId,
       lastMouseY: 0,
-      showLoader: !(this.props.src || this.props.img)
+      showLoader: this.props.showLoader || !(this.props.src || this.props.img)
     }
   }
 
@@ -213,7 +214,6 @@ class Avatar extends React.Component {
   }
 
   onCloseClick() {
-    console.log('close')
     this.setState({ showLoader: true }, () => this.onCloseCallback())
   }
 
