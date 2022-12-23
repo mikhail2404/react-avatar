@@ -95,7 +95,7 @@ export interface Props {
    */
   exportAsSquare?: boolean;
 
-  showLoader?: boolean;
+  isFinishedCropping?: boolean;
   /**
    * The number of pixels width/height should have on the exported image.
    * Default: original size of the image

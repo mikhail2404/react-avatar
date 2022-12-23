@@ -21,11 +21,12 @@ class Avatar extends React.Component {
     backgroundColor: 'grey',
     mimeTypes: 'image/jpeg,image/png',
     exportAsSquare: false,
-    showLoader: true,
+    showLoader: false,
     exportSize: undefined,
     exportMimeType: 'image/png',
     exportQuality: 1.0,
     mobileScaleSpeed: 0.5, // experimental
+    isFinishedCropping: false,
     onClose: () => {
     },
     onCrop: () => {
@@ -66,9 +67,8 @@ class Avatar extends React.Component {
       containerId,
       loaderId,
       lastMouseY: 0,
-      showLoader: this.props.showLoader || !(this.props.src || this.props.img)
+      showLoader: !(this.props.src || this.props.img)
     }
-    console.log(this.state.showLoader)
   }
 
   get lineWidth() {
@@ -526,7 +526,7 @@ class Avatar extends React.Component {
     return (
       <div>
         {
-          this.state.showLoader
+          this.state.showLoader || this.props.isFinishedCropping
             ? <div style={borderStyle}>
               <input
                 onChange={(e) => this.onFileLoad(e)}
