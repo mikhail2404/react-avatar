@@ -68,6 +68,7 @@ class Avatar extends React.Component {
       lastMouseY: 0,
       showLoader: this.props.showLoader || !(this.props.src || this.props.img)
     }
+    console.log(this.state.showLoader)
   }
 
   get lineWidth() {
