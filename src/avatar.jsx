@@ -67,7 +67,8 @@ class Avatar extends React.Component {
       containerId,
       loaderId,
       lastMouseY: 0,
-      showLoader: !(this.props.src || this.props.img)
+      showLoader: !(this.props.src || this.props.img),
+      isFinishedCropping: this.props.isFinishedCropping
     }
   }
 
@@ -205,7 +206,7 @@ class Avatar extends React.Component {
       LoadImage(
         file,
         function (image, data) {
-          ref.setState({ image, file, showLoader: false}, () => {
+          ref.setState({ image, file, showLoader: false, isFinishedCropping: false}, () => {
             ref.init();
           });
         },
@@ -526,7 +527,7 @@ class Avatar extends React.Component {
     return (
       <div>
         {
-          this.state.showLoader || this.props.isFinishedCropping
+          this.state.showLoader || this.state.isFinishedCropping
             ? <div style={borderStyle}>
               <input
                 onChange={(e) => this.onFileLoad(e)}
