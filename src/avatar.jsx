@@ -492,7 +492,7 @@ class Avatar extends React.Component {
       display: 'flex',
       justifyContent: 'center',
       backgroundColor: this.backgroundColor,
-      width: width || this.width,
+      width: this.width || width,
       position: 'relative'
     };
 
